@@ -9,12 +9,19 @@ const cors = require('cors');
 const helmet = require('helmet');
 const dotenv = require('dotenv');
 
+process.on('uncaughtException', (err) => {
+  console.error('❌ Uncaught Exception:', err);
+});
+process.on('unhandledRejection', (err) => {
+  console.error('❌ Unhandled Rejection:', err);
+});
+
 dotenv.config();
 const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }); // limit api requests to protect server // max 100 request from 1 IP within 15 minutes time window expressed in miliseconds
 app.use(express.json());
-app.use(mongoSanitize()); // prevent NoSql injection, sanitize requests
-app.use(xss()); // prevent attackers from injecting malicious scripts
-app.use(limiter);
+// app.use(mongoSanitize()); // prevent NoSql injection, sanitize requests
+// app.use(xss()); // prevent attackers from injecting malicious scripts
+// app.use(limiter);
 //app.use(cors({ origin: 'http://yourfrontend.com' })); // allow only your frontend to call your backend, no unauthorized api calls
 app.use(cors({ origin: '*' })); // accessible from anywhere, because we don't have a frontend
 app.use(helmet()); // protect against clickjacking, content sniffing. It hides framework details in headers
