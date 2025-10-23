@@ -1,0 +1,50 @@
+# --- Node modules ---
+node_modules/
+
+# --- Environment variables ---
+.env
+.env.*        # if you have multiple env files (.env.local, .env.prod, etc.)
+
+# --- Logs and debug files ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# --- System files ---
+.DS_Store
+Thumbs.db
+
+# --- Build outputs / compiled code ---
+dist/
+build/
+coverage/
+.tmp/
+.cache/
+.next/          # if using Next.js
+out/
+
+# --- IDE / Editor settings ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- OS-specific junk ---
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# --- Uploads or temporary files ---
+uploads/
+temp/
+*.tmp
+
+# --- Optional lock files (if you prefer to ignore them) ---
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# --- Misc ---
